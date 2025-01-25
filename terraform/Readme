@@ -1,0 +1,14 @@
+
+
+```sh
+  terraform apply -var-file="local.tfvars"
+```
+
+
+```sh
+  terraform apply -var-file="local.tfvars"
+```
+
+```sh
+  terraform apply -var-file="local.tfvars"
+```

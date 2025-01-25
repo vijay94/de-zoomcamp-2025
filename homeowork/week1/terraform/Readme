@@ -1,0 +1,23 @@
+## Running the terraform code
+
+**Hint: gcs_bucket_name should be unique in gcp.tfvars as it globally unique**
+
+Init Terraform using the below command
+
+```sh
+  terraform init
+```
+
+### Make sure you have all the required variables in the gcp.tfvars file
+
+Plan the Terraform using the below command
+
+```sh
+  terraform plan -var-file=gcp.tfvars
+```
+
+Apply the Terraform using the below command
+
+```sh
+  terraform apply -var-file=gcp.tfvars
+```

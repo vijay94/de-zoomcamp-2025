@@ -1,0 +1,23 @@
+## Running the project in local
+
+Create virtual environment using the below command
+
+```sh
+  python3 -m venv venv
+```
+
+
+Activate the virtual environment using the below command
+
+```sh
+  source venv/bin/activate
+```
+
+Install the dependencies using the below command
+
+```sh
+  pip install -r requirements.txt
+
+```
+
+Make sure you have all the required variables in the .env file. Copy the .env.local file to .env and update the values.
