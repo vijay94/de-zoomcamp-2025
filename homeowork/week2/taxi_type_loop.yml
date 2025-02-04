@@ -1,0 +1,18 @@
+id: loop_taxi_type
+namespace: zoomcamp
+
+tasks:
+  - id: loop_through_taxi
+    type: io.kestra.plugin.core.flow.ForEach
+    values:
+      - "yellow"
+      - "green"
+    tasks:
+      - id: paralle_exec
+        type: io.kestra.plugin.core.flow.Subflow
+        flowId: year_month_loop
+        namespace: zoomcamp
+        wait: true
+        transmitFailed: true
+        inputs:
+          type: "{{ taskrun.value }}"

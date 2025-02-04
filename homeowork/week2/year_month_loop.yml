@@ -1,0 +1,25 @@
+id: year_month_loop
+namespace: zoomcamp
+
+
+inputs:
+  - id: type
+    type: STRING
+
+tasks:
+  - id: loop_through_month
+    type: io.kestra.plugin.core.flow.ForEach
+    values: ["01", "02", "03", "04", "05", "06", "07"]
+    batch:
+      rows: 1
+    tasks:
+      - id: paralle_exec
+        type: io.kestra.plugin.core.flow.Subflow
+        flowId: 06_gcp_taxi
+        namespace: zoomcamp
+        wait: true
+        transmitFailed: true
+        inputs:
+          taxi: "{{ inputs.type }}"
+          month: "{{ taskrun.value }}"
+          year: "2021"
