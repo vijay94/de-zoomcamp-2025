@@ -12,9 +12,13 @@ BUCKET_NAME = "kestra-zoomcamp-sample-123"
 CREDENTIALS_FILE = os.environ['HOME'] + "/.gcp/ny_taxi.json"
 client = storage.Client.from_service_account_json(CREDENTIALS_FILE)
 
+year = 2020
 
-BASE_URL = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2024-"
-MONTHS = [f"{i:02d}" for i in range(1, 7)]
+data_set = "green_tripdata"
+
+BASE_URL = f"https://d37ci6vzurychx.cloudfront.net/trip-data/{data_set}_{year}-"
+MONTHS = [f"{i:02d}" for i in range(1, 13)]
+print (MONTHS)
 DOWNLOAD_DIR = "."
 
 CHUNK_SIZE = 8 * 1024 * 1024
@@ -26,7 +30,7 @@ bucket = client.bucket(BUCKET_NAME)
 
 def download_file(month):
     url = f"{BASE_URL}{month}.parquet"
-    file_path = os.path.join(DOWNLOAD_DIR, f"yellow_tripdata_2024-{month}.parquet")
+    file_path = os.path.join(DOWNLOAD_DIR, f"{data_set}_{year}-{month}.parquet")
     if (os.path.exists(file_path)):
         print(f"File {file_path} already exists, skipping download.")
         return file_path

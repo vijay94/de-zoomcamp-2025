@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: raw_nyc_tripdata
+    database: "{{ env_var('DBT_BIGQUERY_PROJECT', 'dtc_zoomcamp_2025') }}"
+    schema:   "{{ env_var('DBT_BIGQUERY_SOURCE_DATASET', 'raw_nyc_tripdata') }}"
+    tables:
+      - name: ext_green_taxi
+
+  - name: staging
+    database: "kestra-zoomcamp-449912"
+    schema: "taxi_rides_ny"
+      # loaded_at_field: record_loaded_at
+    tables:
+      - name: fhv_tripdata
+
+models:
+  - name: fact_taxi_trips
+    columns:
+      - name: tripid
+        data_type: string
+        description: "unique identifier conformed by the combination of vendorid and pickup time"
+
+  - name: stg_fhv_tripdata
+    columns:
+      - name: dispatching_base_num
+        description: >
+
+      - name: pickup_datetime
+      - name: dropOff_datetime
+      - name: PULocationID
+      - name: DOLocationID
+      - name: SR_Flag
+      - name: Affiliated_base_number
