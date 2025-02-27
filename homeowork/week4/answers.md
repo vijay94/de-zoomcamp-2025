@@ -1,6 +1,6 @@
 ## Question 1
 
-select * from myproject.my_nyc_tripdata.ext_green_taxi
+select * from myproject.raw_nyc_tripdata.ext_green_taxi
 
 ## Question 2
 
