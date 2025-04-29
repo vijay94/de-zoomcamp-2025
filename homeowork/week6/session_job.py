@@ -26,7 +26,7 @@ def create_events_source_kafka(t_env):
     table_name = "events"
     pattern = "yyyy-MM-dd HH:mm:ss"
     source_ddl = f"""
-        CREATE OR REPLACE TABLE {table_name} (
+        CREATE {table_name} (
             lpep_pickup_datetime VARCHAR,
             lpep_dropoff_datetime VARCHAR,
             PULocationID INT,

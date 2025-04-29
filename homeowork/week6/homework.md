@@ -13,6 +13,6 @@ True
 
 ## Question 4
 
-44.40
+Time taken to send 476386 messages: 38.20 seconds
 
 ## Question 5
